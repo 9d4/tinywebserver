@@ -11,7 +11,12 @@ type Server struct {
 }
 
 func (server *Server) Start() {
-	router.Init()
+	// * Handle static assets
+	fileServer := http.FileServer(http.Dir("public"))
+	http.Handle("/", http.StripPrefix("/", fileServer))
 
+
+	router.Init()
+	
 	http.ListenAndServe(server.Host, nil)
 }
