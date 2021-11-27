@@ -3,7 +3,7 @@ package server
 import (
 	"net/http"
 
-	"github.com/traperwaze/tinywebserver/router"
+	"github.com/traperwaze/tinywebserver/routes"
 )
 
 type Server struct {
@@ -15,8 +15,8 @@ func (server *Server) Start() {
 	fileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/", http.StripPrefix("/", fileServer))
 
+	// * register routes
+	routes.Register()
 
-	router.Init()
-	
-	http.ListenAndServe(server.Host, nil)
+	http.ListenAndServe(server.Host, routes.Router)
 }

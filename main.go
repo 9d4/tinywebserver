@@ -7,9 +7,7 @@ import (
 const HOST = ":8000"
 
 func main() {
-	_server := server.Server{Host: HOST}
-	_server.Start();
+	httpServer := server.Server{Host: HOST}
 
-
-	// http.ListenAndServe(getNormalizedHost(), nil)
+	httpServer.Start();
 }
