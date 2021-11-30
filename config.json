@@ -1,0 +1,7 @@
+{
+    "host": ":9090",
+    "mysql_host": "127.0.0.1:3307",
+    "mysql_user": "root",
+    "mysql_password": "toor",
+    "mysql_database": "tiny"
+}

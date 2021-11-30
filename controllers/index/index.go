@@ -6,10 +6,17 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Holla dunya...")	
+	fmt.Fprintln(w, "Holla dunya...")
 }
 
 func Else(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Cari apa?")
-	fmt.Fprintf(w, "Kamu sedang di %s", "asd")
+	w.WriteHeader(404)
+
+	notFoundMessage := []byte("Not found!")
+
+	w.Write(notFoundMessage)
+}
+
+func Quda(w http.ResponseWriter, r *http.Request) {
+
 }
