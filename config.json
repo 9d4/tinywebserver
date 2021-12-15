@@ -1,7 +1,8 @@
 {
-    "host": ":9090",
+    "host": ":8080",
     "mysql_host": "127.0.0.1:3307",
     "mysql_user": "root",
     "mysql_password": "toor",
-    "mysql_database": "tiny"
+    "mysql_database": "tiny",
+    "view_path": "views"
 }

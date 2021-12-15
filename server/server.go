@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/traperwaze/tinywebserver/routes"
@@ -17,5 +18,6 @@ func (server *Server) Start() {
 	// * register routes
 	routes.Register()
 
+	fmt.Println("Listening in", server.Host)
 	http.ListenAndServe(server.Host, routes.Router)
 }

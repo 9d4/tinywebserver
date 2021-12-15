@@ -1,0 +1,56 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{template "head.html" .}}
+    <title>Todo</title>
+  </head>
+  <body>
+    {{template "nav.html" .}}
+    <main class="container">
+      <form action="/" method="post">
+        <input class="pe-3" type="text" name="todo" autofocus />
+        <button class="btn btn-sm btn-primary">Add</button>
+      </form>
+      <br />
+
+      <h5>List</h5>
+      <ul>
+        {{ range .Todos }} {{ $done := "" }} {{ if .Done }} {{ $done =
+        "alert-success" }} {{ end }}
+        <div class="card mb-2 {{$done}}">
+          <div class="card-body">
+            <p class="mb-1">{{.Content}}</p>
+            <small>{{ .CreatedAt.Format "02-01-2006 15:04:05" }}</small>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex">
+              {{ if .Done }}
+              <a
+                class="btn btn-sm btn-warning"
+                href="/undone/{{ .Id }}"
+                role="button"
+                >Undone</a
+              >
+              {{ else }}
+              <a
+                class="btn btn-sm btn-success"
+                href="/done/{{ .Id }}"
+                role="button"
+                >Done</a
+              >
+              {{ end }}
+              <form action="/delete/{{.Id}}" method="post">
+                <button class="btn btn-sm btn-danger ms-3" type="submit">
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </ul>
+    </main>
+  </body>
+</html>
+{{end}}

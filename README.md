@@ -6,4 +6,3 @@ Simply execute this command and you're set.
 ```
 go run .
 ```
-re

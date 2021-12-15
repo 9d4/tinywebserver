@@ -2,6 +2,8 @@ package config
 
 import (
 	"fmt"
+	"os"
+	"path"
 	"reflect"
 
 	"github.com/tkanos/gonfig"
@@ -13,6 +15,7 @@ type configuration struct {
 	MYSQL_USER     string
 	MYSQL_PASSWORD string
 	MYSQL_DATABASE string
+	VIEW_PATH      string
 }
 
 var Config *configuration
@@ -40,7 +43,18 @@ func Get(key string) string {
 }
 
 func GetMysqlConnectionString() string {
-	f := fmt.Sprintf("%s:%s@(%s)/%s", Config.MYSQL_USER, Config.MYSQL_PASSWORD, Config.MYSQL_HOST, Config.MYSQL_DATABASE)
+	f := fmt.Sprintf("%s:%s@(%s)/%s?parseTime=true", Config.MYSQL_USER, Config.MYSQL_PASSWORD, Config.MYSQL_HOST, Config.MYSQL_DATABASE)
+
+	return f
+}
+
+func GetViewsPath() string {
+	pwd, err := os.Getwd()
+	if err != nil {
+		pwd = ""
+	}
+
+	f := fmt.Sprint(path.Join(pwd, Config.VIEW_PATH))
 
 	return f
 }
