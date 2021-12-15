@@ -29,6 +29,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Store(w http.ResponseWriter, r *http.Request) {
+	// if the method is http.methodPost, we can use r.FormValue(key string)
 	content := r.FormValue("todo")
 
 	if helper.IsEmptyString(content) {

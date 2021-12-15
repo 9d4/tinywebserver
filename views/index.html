@@ -21,7 +21,8 @@
         <div class="card mb-2 {{$done}}">
           <div class="card-body">
             <p class="mb-1">{{.Content}}</p>
-            <small>{{ .CreatedAt.Format "02-01-2006 15:04:05" }}</small>
+            <small>{{ .CreatedAt.Format "02-01-2006 15:04:05" }}</small><br>
+            <small><span class="alert-info">{{ .UpdatedAt.Format "02-01-2006 15:04:05" }}</span></small>
           </div>
           <div class="card-footer">
             <div class="d-flex">
