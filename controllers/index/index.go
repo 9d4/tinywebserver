@@ -1,4 +1,4 @@
-package index
+package indexController
 
 import (
 	"fmt"
@@ -6,9 +6,9 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/traperwaze/tinywebserver/helper"
-	todo_service "github.com/traperwaze/tinywebserver/services/todo"
-	"github.com/traperwaze/tinywebserver/view"
+	"github.com/9d4/tinywebserver/helper"
+	todo_service "github.com/9d4/tinywebserver/services/todo"
+	"github.com/9d4/tinywebserver/view"
 )
 
 type PageData map[string]interface{}
@@ -93,4 +93,30 @@ func Else(w http.ResponseWriter, r *http.Request) {
 	notFoundMessage := []byte("Not found!")
 
 	w.Write(notFoundMessage)
+}
+
+func LoginFake(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Preparing cookie to write")
+
+	cookies := []http.Cookie{
+		{
+			Name:   "username",
+			Value:  "traper",
+			MaxAge: 600,
+			Path:   "/",
+		},
+		{
+			Name:   "loggedIn",
+			Value:  "1",
+			MaxAge: 600,
+			Path:   "/",
+		},
+	}
+
+	for _, cookie := range cookies {
+		http.SetCookie(w, &cookie)
+	}
+
+	fmt.Println("Written!")
+	helper.RedirectToUser(w, r)
 }

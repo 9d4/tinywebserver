@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/traperwaze/tinywebserver/config"
-	"github.com/traperwaze/tinywebserver/database"
-	"github.com/traperwaze/tinywebserver/server"
+	"github.com/9d4/tinywebserver/config"
+	"github.com/9d4/tinywebserver/database"
+	"github.com/9d4/tinywebserver/server"
 )
 
 func main() {

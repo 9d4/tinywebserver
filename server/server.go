@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/traperwaze/tinywebserver/routes"
+	"github.com/9d4/tinywebserver/routes"
 )
 
 type Server struct {

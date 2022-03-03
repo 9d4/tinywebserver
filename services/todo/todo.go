@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/traperwaze/tinywebserver/database"
-	"github.com/traperwaze/tinywebserver/helper"
+	"github.com/9d4/tinywebserver/database"
+	"github.com/9d4/tinywebserver/helper"
 )
 
 var tableName = "todos"

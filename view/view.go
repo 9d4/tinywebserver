@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/traperwaze/tinywebserver/config"
+	"github.com/9d4/tinywebserver/config"
 )
 
 var partialsPath = "views/partials/"

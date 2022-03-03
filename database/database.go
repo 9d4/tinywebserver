@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/traperwaze/tinywebserver/config"
+	"github.com/9d4/tinywebserver/config"
 )
 
 var DB *sql.DB
